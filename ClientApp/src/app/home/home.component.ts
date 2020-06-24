@@ -13,7 +13,6 @@ export class HomeComponent {
 
     http.get<Feed[]>(baseUrl + 'api/rssfeeds').subscribe(result => {
       this.latestPosts = result;
-      //show result here
     }, error => console.error(error));
 
   }  
