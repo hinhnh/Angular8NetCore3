@@ -1,1 +1,2 @@
 ﻿
+npm install -g typescript@latest

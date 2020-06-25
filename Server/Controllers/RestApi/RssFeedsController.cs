@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Angular8NetCore3.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Angular8NetCore3.Controllers
 {
@@ -15,6 +16,11 @@ namespace Angular8NetCore3.Controllers
     public class RssFeedsController : ControllerBase
     {
         readonly CultureInfo culture = new CultureInfo("en-US");
+        private readonly ILogger<RssFeedsController> _logger;
+        public RssFeedsController(ILogger<RssFeedsController> logger)
+        {
+            _logger = logger;
+        }
 
         [HttpGet]
         public IEnumerable<Feed> Get()
@@ -46,5 +52,4 @@ namespace Angular8NetCore3.Controllers
         }
     }
 
-}
 }
