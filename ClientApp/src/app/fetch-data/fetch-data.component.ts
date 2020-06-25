@@ -1,5 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { WeatherForecast } from '../models/weather-forecast-model';
+
 
 @Component({
   selector: 'app-fetch-data',
@@ -15,9 +17,3 @@ export class FetchDataComponent {
   }
 }
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
