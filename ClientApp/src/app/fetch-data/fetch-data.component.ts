@@ -1,19 +1,40 @@
-import { Component, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { WeatherForecast } from '../models/weather-forecast-model';
+import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
 
+import { WeatherForecast } from '../models/weather-forecast-model';
+import { FetchDataService } from '../fetch-data/fetch-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html'
 })
-export class FetchDataComponent {
+export class FetchDataComponent implements OnInit, OnDestroy {
   public forecasts: WeatherForecast[];
+  subFetchService: Subscription;
+  constructor(private fetchService: FetchDataService) {
 
-  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
   }
+   
+    ngOnInit(): void {
+
+      console.log(this.fetchService.getWeatherForecast);
+
+      this.subFetchService = this.fetchService.getWeatherForecast().subscribe(result => {
+
+        this.forecasts = result;
+      },
+        error => {
+          console.error(error);
+        }
+      )
+
+    }
+
+  ngOnDestroy(): void {
+    if (this.subFetchService) this.subFetchService.unsubscribe();
+  }
+
+
+
 }
 
