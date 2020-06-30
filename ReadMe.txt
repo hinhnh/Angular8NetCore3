@@ -15,7 +15,10 @@ update version angular: ng update
    1.Create coponent: ng generate component my-component --no-spec
 
    2.Create service:  ng g service ../app/fetch-data/fetch-data2 --skipTests=true
+   ng g s payment/payment-detail -skipTests
    3.Create service and provider into module:     ng g service backendApi --module=app.module
+    Create Compomemt:                              ng generate component componentName --module=app.module
+    
 
    4.To create a component as part of a module you should
     ng g module newModule to generate a module,
@@ -25,6 +28,19 @@ update version angular: ng update
     ng g c new-module/component-test --module=new-module/new-module.module.ts
 
     ng g c testComponent --module=/src/app/home/test-component/test-component.module
+    ng g component component-name --skip-import
+
+
+
+    //parent component
+     ng g c payment-details -s --skipTests
+    //child components
+        ng g c payment/payment-detail -s --skipTests
+        ng g c payment-details/payment-detail-list -s --skipTests
+
+
+    5. Create class with type=model:
+    ng g class shared/payment-detail --type=model --skipTests
     ==================================================================================================
 
     

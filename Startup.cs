@@ -39,7 +39,7 @@ namespace Angular8NetCore3
                .AddDefaultTokenProviders();
 
             // config dependence injectjion
-            services.AddSingleton<IPaymentDetailRepository, PaymentDetailRepository>();
+            services.AddScoped<IPaymentDetailRepository, PaymentDetailRepository>();
 
 
             //ENABLE CORS
