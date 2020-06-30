@@ -25,3 +25,22 @@ update version angular: ng update
     ng g c new-module/component-test --module=new-module/new-module.module.ts
 
     ng g c testComponent --module=/src/app/home/test-component/test-component.module
+    ==================================================================================================
+
+    
+Install package:
+1.Microsoft.EntityFrameworkCore
+2.dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+3.Install-Package Microsoft.EntityFrameworkCore.Tools: to use Migration
+4.dotnet add package Microsoft.EntityFrameworkCore.Design
+5.Microsoft.IdentityModel.Tokens
+6.Microsoft.Extensions.Identity.Core
+7.Microsoft.AspNetCore.Authentication.JwtBearer 3.1.5.
+8.Microsoft.AspNetCore.Authentication.JwtBearer
+9.Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+
+
+step1: enable-migration
+step2 scripts create or update data base with migration:  add-migration CreateSchoolDB
+step3 run  command: update-database –verbose
