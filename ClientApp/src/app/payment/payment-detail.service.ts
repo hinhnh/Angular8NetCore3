@@ -16,7 +16,7 @@ export class PaymentDetailService {
   }
 
   postPaymentDetail(formData:PaymentDetail ) {
-    return this.http.post(this.rootURL + '/PaymentDetails', formData);
+    return this.http.post(this.rootURL + '/PaymentDetails/AddPaymentDetail', formData);
   }
   putPaymentDetail(formData: PaymentDetail ) {
     return this.http.put(this.rootURL + '/PaymentDetails/' + formData.pmId, formData);
