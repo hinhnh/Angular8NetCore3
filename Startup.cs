@@ -59,7 +59,8 @@ namespace Angular8NetCore3
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+               // app.UseExceptionHandler("/Error");
             }
 
             app.UseStaticFiles();

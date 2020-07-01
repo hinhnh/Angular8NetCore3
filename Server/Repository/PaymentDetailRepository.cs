@@ -10,12 +10,11 @@ namespace Angular8NetCore3.Server.Repository
 {
     public class PaymentDetailRepository : IPaymentDetailRepository
     {
-
-        ApplicationDbContext _db;
+        readonly ApplicationDbContext _db;
 
         public PaymentDetailRepository(ApplicationDbContext db)
         {
-            db = _db;
+            _db = db;
         }
 
 
