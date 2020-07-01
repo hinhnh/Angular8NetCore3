@@ -93,10 +93,10 @@ namespace Angular8NetCore3
                 }
             });
 
-            //use this CORS policy inside the Configure method
+            //cachs 1: use this CORS policy inside the Configure method
             app.UseCors("MyAppPolicy");
 
-            // global cors policy
+            //cach2: global cors policy
             //app.UseCors(x => x
             //    .AllowAnyOrigin()
             //    .AllowAnyMethod()

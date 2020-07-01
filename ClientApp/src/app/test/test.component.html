@@ -1,0 +1,31 @@
+<p>test works!</p>
+<p> Liệt kê danh sách các công việc cần làm dùng @ngFor</p>
+<ul>
+  <li *ngFor="let cv of arrayObject">{{cv}}</li>
+</ul>
+
+<hr>
+<h1>*ngSwitchCase </h1>
+<div class="container">
+  <ul [ngSwitch]="superhero">
+    <li *ngSwitchCase="'Groot'">Groot</li>
+    <li *ngSwitchCase="'Ironman'">Ironman</li>
+    <li *ngSwitchCase="'Hulk'">Hulk</li>
+    <li *ngSwitchCase="'Thor'">Thor</li>
+    <li *ngSwitchCase="'Spiderman'">Spiderman</li>
+    <li *ngSwitchDefault>Batman</li>
+  </ul>
+</div>
+<hr>
+<h1> Attribute directive:ngStyle  </h1>
+<p style="padding: 1rem" [ngStyle]="{'color': Red,'font-weight': 'Bold','font-size':'35px','borderBottom': borderStyle}"> Assigning Inline style to ngStyle </p>
+<p [ngStyle]="appStyleGreen">set style from the Component.</p>
+<p> <input type="button" (click)="ChangeColor()" value="Change color" /> </p>
+<p [ngStyle]="applygreenstyle==true?appStyleGreen:appStyleBlue">Change the Style based On Condition..</p>
+<hr>
+<h1> Demo Directive: ngClass cho phép apply  class động </h1>
+<button (click)="toggleState()">Toggle State</button>
+<p>Obtaining the CSS classes from the component method:</p>
+<button [ngClass]="calculateClasses()" (click)="submit()">Button</button>
+
+<button [ngClass]="{'btn': true,'btn-primary': true,'btn-extra-class':this.stateFlag}" (click)="submit()">Button1</button>

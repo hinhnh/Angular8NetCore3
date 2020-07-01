@@ -29,6 +29,8 @@ update version angular: ng update
 
     ng g c testComponent --module=/src/app/home/test-component/test-component.module
     ng g component component-name --skip-import
+    ng g c test --skip-import
+    ng g c test --module=app.module
 
 
 

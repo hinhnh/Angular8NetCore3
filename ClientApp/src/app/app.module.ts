@@ -15,6 +15,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentDetailComponent } from './payment/payment-detail/payment-detail.component';
 import { PaymentDetailListComponent } from './payment/payment-detail-list/payment-detail-list.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { PaymentDetailListComponent } from './payment/payment-detail-list/paymen
     FetchDataComponent,
     PaymentComponent,
     PaymentDetailComponent,
-    PaymentDetailListComponent
+    PaymentDetailListComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

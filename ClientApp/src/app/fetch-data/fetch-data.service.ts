@@ -14,6 +14,7 @@ export class FetchDataService {
 
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    if (baseUrl.includes("4200")) baseUrl = "http://localhost:53899/";
     this.apiUrl = baseUrl + 'weatherforecast';
   }
 
