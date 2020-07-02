@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PaymentDetailService } from '../../payment/payment-detail.service';
 
 import { NgForm } from '@angular/forms';
@@ -11,41 +11,39 @@ import { PaymentDetail } from '../../models/payment-detail.model';
 })
 export class PaymentDetailComponent implements OnInit {
 
+  @Output() onSubmitRecord = new EventEmitter(); 
   public formData: PaymentDetail = new PaymentDetail();
-  constructor( public service: PaymentDetailService) { }
 
-  ngOnInit() {
+
+constructor(private service: PaymentDetailService) {
+
+}
+
+  ngOnInit() {   
+  }
+
+  get data(): PaymentDetail {
+    if (this.service.shareData != null) this.formData = this.service.shareData;
+    return this.service.shareData;
   }
 
   resetForm(form?: NgForm) {
-    if (form != null)
-      form.form.reset();
+    if (form != null) form.form.reset();
+    this.formData = new PaymentDetail();
+    this.service.shareData = new PaymentDetail();
 
-    this.formData = {
-      pmId: 0,
-      cardOwnerName: '',
-      cardNumber: '',
-      expirationDate: '',
-      cvv: ''
-    }
+    //this.formData = {
+    //  pmId: 0,
+    //  cardOwnerName: '',
+    //  cardNumber: '',
+    //  expirationDate: '',
+    //  cvv: ''
+    //}
+    
   }  
 
-
   onSubmit(form: NgForm) {
-    //alert(1);
-    this.insertRecord(form);
+    this.onSubmitRecord.emit(this.formData);         
   }
-
-  insertRecord(form: NgForm) {
-    this.service.postPaymentDetail(this.formData).subscribe(
-      res => {
-        this.resetForm(form);
-        this.service.refreshList();
-      },
-      err => { console.log(err); }
-    )
-  }
-
-
 
 }

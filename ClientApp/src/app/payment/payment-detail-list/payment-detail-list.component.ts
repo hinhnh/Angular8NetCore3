@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { PaymentDetail } from '../../models/payment-detail.model';
+import { PaymentDetailService } from '../payment-detail.service';
+
 
 @Component({
   selector: 'app-payment-detail-list',
@@ -7,9 +10,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentDetailListComponent implements OnInit {
 
-  constructor() { }
+  @Input() lstPaymentDetails: PaymentDetail[] = [];
+  @Output() onDeleteRecord = new EventEmitter();
+
+  constructor(private service: PaymentDetailService ) { }
 
   ngOnInit() {
   }
+
+  editRecord(item: PaymentDetail) {
+    this.service.shareData = item;
+  }
+
+  deleteRecord(item: PaymentDetail) {
+    this.onDeleteRecord.emit(item.pmId);
+  }
+
+  //get data(): PaymentDetail {
+  //  return this.service.shareData;
+  //}
+  //set data(value: PaymentDetail) {
+  //   this.service.shareData = value;
+  //}
+
+
 
 }

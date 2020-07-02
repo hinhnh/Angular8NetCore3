@@ -1,1 +1,89 @@
-<p>payment-detail-list works!</p>
+
+<div class="container">
+  <h3>Payment Detail Management</h3>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>PmId</th>
+        <th>CardOwnerName</th>
+        <th>CardNumber</th>
+        <th>ExpirationDate</th>
+        <th>CVV</th>
+        <th class="action"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of lstPaymentDetails; let odd=odd; let even=even;">
+        <td> {{ item.pmId }}</td>
+        <td> {{ item.cardOwnerName }}</td>
+        <td> {{ item.cardNumber }}</td>
+        <td> {{ item.expirationDate }}</td>
+        <td> {{ item.cvv }}</td>
+        
+        <td class="action">
+          <a (click)="editRecord(item)" class="btn btn-info btn-xs">
+            <span class="fa fa-edit"></span> Edit
+          </a>
+
+          <a (click)="deleteRecord(item)" class="btn btn-info btn-xs">
+            <span class="fa fa-edit"></span> Delete
+          </a>
+        </td>
+      </tr> 
+
+    </tbody>
+  </table>
+</div>
+
+<!--
+<tr class="company-row" *ngFor="let item of companies; let odd=odd; let even=even;" [ngClass]="{'odd': odd, 'even': even, 'un-confirmed': !(item.statusReport && item.statusLogo), 'row-none': item.total <= 0,'inactive': !item.isActiveInEuroland}">
+  <td class="companyname">
+    <span *ngIf="item.percentRate >= 70" (click)="sort('marketCap')" title="{{filterModel.sortBy !='marketCap'?'Sort' : 'Sorted' }} by Percent Rank Market: {{item.percentRate}}‎%"><i class='fa fa-star indicator-star' [ngClass]="{'cursor-pointer': filterModel.sortBy != 'marketCap' }"></i> </span>
+    <span *ngIf="item.percentRate > 0 && item.percentRate < 70" (click)="sort('marketCap')" title="{{filterModel.sortBy !='marketCap'?'Sort' : 'Sorted' }} by Percent Rank Market: {{item.percentRate}}%"><i class='fa fa-star-o indicator-star-0' [ngClass]="{'cursor-pointer': filterModel.sortBy != 'marketCap' }"></i> </span>
+
+    <a *ngIf="isAllowEdit" (click)="openEditPage(item)">
+      <span [ngClass]="{'p-name': item.percentRate == 0, 'inactive': !item.isActiveInEuroland, 'delisted': item.isTaggedDelisted }">
+        {{ item.companyName }}
+      </span>
+    </a>
+    <span *ngIf="!isAllowEdit">
+      {{ item.companyName }}
+    </span>
+
+    <span *ngIf="item.published"
+          class="label label-success published-tag">
+      Published
+    </span>
+
+    <span *ngIf="item.isTaggedDelisted"
+          class="label label-success delisted-tag">
+      Delisted
+    </span>
+  </td>
+  <td class="country">{{ item.country }}</td>
+  <td class="sector">{{ item.sector || item.sectorName }}</td>
+  <td class="exchange">{{ item.exchange }}</td>
+  <td class="euroland-company-code">{{ item.eurolandCompanyCode }}</td>
+  <td class="logo-verified">
+
+    <span *ngIf="item.statusLogo" class="center-block padding-5 label label-success">Verified</span>
+    <span *ngIf="!item.statusLogo" class="center-block padding-5 label label-warning">Not Yet Verified</span>
+
+  </td>
+  <td class="report-verified">
+
+    <span *ngIf="item.statusReport" class="center-block padding-5 label label-success">Verified</span>
+    <span *ngIf="!item.statusReport" class="center-block padding-5 label label-warning">Not Yet Verified</span>
+
+  </td>
+  <td class="status">
+    <span *ngIf="item.statusCompany" class="center-block padding-5 label label-success">Complete</span>
+    <span *ngIf="!item.statusCompany" class="center-block padding-5 label label-warning">Incomplete</span>
+  </td>
+  <td class="action">
+    <a *ngIf="isAllowEdit" (click)="openEditPage(item)" class="btn btn-info btn-xs">
+      <span class="fa fa-edit"></span> Edit
+    </a>
+  </td>
+</tr>
+-->

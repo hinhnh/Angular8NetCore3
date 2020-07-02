@@ -100,7 +100,7 @@ namespace Angular8NetCore3.Server.Controllers.RestApi
 
 
 
-        [HttpPost]
+        [HttpPut]
         [Route("UpdatePaymentDetail")]
         public async Task<IActionResult> UpdatePost([FromBody] PaymentDetail model)
         {
@@ -110,7 +110,7 @@ namespace Angular8NetCore3.Server.Controllers.RestApi
                 {
                     await _paymentRepository.UpdatePaymentDetail(model);
 
-                    return Ok();
+                    return Ok(true);
                 }
                 catch (Exception ex)
                 {
@@ -128,9 +128,9 @@ namespace Angular8NetCore3.Server.Controllers.RestApi
 
 
 
-        [HttpPost]
-        [Route("DeletePost")]
-        public async Task<IActionResult> DeletePost(int? pmId)
+        [HttpDelete]
+        [Route("DeletePayment/{pmId}")]
+        public async Task<IActionResult> DeletePayment(int? pmId)
         {
             int result = 0;
 
@@ -146,7 +146,7 @@ namespace Angular8NetCore3.Server.Controllers.RestApi
                 {
                     return NotFound();
                 }
-                return Ok();
+                return Ok(true);
             }
             catch (Exception)
             {
