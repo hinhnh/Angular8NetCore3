@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { PaymentDetailService } from './payment/payment-detail.service';
-
+import { LoaderInterceptor } from './share/interceptors/loader-interceptor.service';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -16,6 +16,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { PaymentDetailComponent } from './payment/payment-detail/payment-detail.component';
 import { PaymentDetailListComponent } from './payment/payment-detail-list/payment-detail-list.component';
 import { TestComponent } from './test/test.component';
+import { MyLoaderComponent } from './share/components/my-loader/my-loader.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TestComponent } from './test/test.component';
     PaymentComponent,
     PaymentDetailComponent,
     PaymentDetailListComponent,
-    TestComponent
+    TestComponent,
+    MyLoaderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -40,7 +42,7 @@ import { TestComponent } from './test/test.component';
       { path: 'payment', component: PaymentComponent }
     ])
   ],
-  providers: [PaymentDetailService],
+  providers: [PaymentDetailService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

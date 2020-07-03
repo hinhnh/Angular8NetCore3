@@ -15,7 +15,8 @@ update version angular: ng update
    1.Create coponent: ng generate component my-component --no-spec
 
    2.Create service:  ng g service ../app/fetch-data/fetch-data2 --skipTests=true
-   ng g s payment/payment-detail -skipTests
+    ng generate service share/services/loader --skipTests=true
+    ng g s payment/payment-detail -skipTests
    3.Create service and provider into module:     ng g service backendApi --module=app.module
     Create Compomemt:                              ng generate component componentName --module=app.module
     
