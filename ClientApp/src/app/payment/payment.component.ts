@@ -3,6 +3,8 @@ import { PaymentDetailService } from '../payment/payment-detail.service';
 import { PaymentDetail } from '../models/payment-detail.model';
 import { Subscription } from 'rxjs';
 import { PaymentDetailComponent } from './payment-detail/payment-detail.component';
+import { AlertService } from '../share/components/alert';
+
 
 @Component({
   selector: 'app-payment',
@@ -14,6 +16,11 @@ export class PaymentComponent implements OnInit, OnDestroy, AfterViewInit  {
   lstPaymentDetails: PaymentDetail[] = [];
   subGetPayment: Subscription;
 
+  options = {
+    autoClose: true,
+    keepAfterRouteChange: false
+  };
+
   /*
    { static: true } needs to be set when you want to access the ViewChild in ngOnInit.
 
@@ -21,7 +28,7 @@ export class PaymentComponent implements OnInit, OnDestroy, AfterViewInit  {
    */
   @ViewChild(PaymentDetailComponent, { static: false }) paymentDetailComponent: PaymentDetailComponent ;
 
-  constructor(private paymentService: PaymentDetailService) { }
+  constructor(private paymentService: PaymentDetailService, private alertService: AlertService) { }
      
 
   ngOnInit() {
@@ -62,9 +69,8 @@ export class PaymentComponent implements OnInit, OnDestroy, AfterViewInit  {
 
   insertRecord(formData: PaymentDetail) {
     this.paymentService.insertPaymentDetail(formData).subscribe(
-      res => {
-        //this.resetForm(form);
-        alert('insert record successfully');
+      res => {              
+        this.alertService.success('Insert record successfully!', this.options);
         this.paymentDetailComponent.resetForm();
         this.getPaymentDetails();
       },
@@ -75,7 +81,7 @@ export class PaymentComponent implements OnInit, OnDestroy, AfterViewInit  {
   updateRecord(formData: PaymentDetail) {
     this.paymentService.updatePaymentDetail(formData).subscribe(
       res => {
-        alert('update successfully');
+        this.alertService.success('Update record successfully!', this.options);
         this.paymentDetailComponent.resetForm();
         this.getPaymentDetails();
       },
@@ -89,7 +95,7 @@ export class PaymentComponent implements OnInit, OnDestroy, AfterViewInit  {
     console.log('value event:' + event);
     this.paymentService.deletePaymentDetail(event).subscribe(
       res => {
-        alert('Delete successfully');
+        this.alertService.success('Delete record successfully!', this.options);
         this.getPaymentDetails();
        
             },

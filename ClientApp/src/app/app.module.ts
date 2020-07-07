@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { PaymentDetailService } from './payment/payment-detail.service';
 import { LoaderInterceptor } from './share/interceptors/loader-interceptor.service';
+import { AlertModule } from './share/components/alert';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -35,6 +36,7 @@ import { MyLoaderComponent } from './share/components/my-loader/my-loader.compon
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    AlertModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
