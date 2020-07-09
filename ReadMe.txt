@@ -44,6 +44,12 @@ update version angular: ng update
 
     5. Create class with type=model:
     ng g class shared/payment-detail --type=model --skipTests
+
+    6. Create molule routing: 
+       ng g m [ModuleName] --routing
+
+    7.Create our Angular app without all the *.spec.ts, *.css, *.html files. Everything will be inline
+     ng new project-name --minimal
     ==================================================================================================
 
     

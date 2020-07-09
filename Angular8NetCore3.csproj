@@ -33,6 +33,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\home\home.module.ts" />
+    <None Remove="ClientApp\src\app\home\home.routing.ts" />
     <None Remove="ClientApp\src\app\models\weather-forecast-model.ts" />
   </ItemGroup>
 
@@ -41,6 +43,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\home\home.module.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\home\home.routing.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\weather-forecast-model.ts" />
   </ItemGroup>
 
