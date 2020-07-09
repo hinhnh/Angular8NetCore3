@@ -5,3 +5,8 @@
 <p aria-live="polite">Current count: <strong>{{ currentCount }}</strong></p>
 
 <button class="btn btn-primary" (click)="incrementCounter()">Increment</button>
+
+
+<a class="nav-link text-dark" [routerLink]="['/counter/sub-counter']">Go To Sub Counter</a>
+
+<button class="btn btn-primary" (click)="gotoSubcounter('/counter/sub-counter',2)">Go To Sub Counter by navigateByUrl </button>

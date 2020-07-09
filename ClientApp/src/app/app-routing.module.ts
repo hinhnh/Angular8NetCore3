@@ -15,10 +15,12 @@ const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },  
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule //Lazy load module by router
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule) //Lazy load module by router
   },
-
-  { path: 'counter', component: CounterComponent },
+  {
+    path: 'counter',
+    loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule)
+  },
   { path: 'fetch-data', component: FetchDataComponent },
   { path: 'payment', component: PaymentComponent }
 

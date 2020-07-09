@@ -4,7 +4,8 @@ import { PaymentDetail } from '../models/payment-detail.model';
 import { Subscription } from 'rxjs';
 import { PaymentDetailComponent } from './payment-detail/payment-detail.component';
 import { AlertService } from '../share/components/alert';
-
+import { Observable } from 'rxjs';
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: 'app-payment',
@@ -55,11 +56,12 @@ export class PaymentComponent implements OnInit, OnDestroy, AfterViewInit  {
 
   applyOnSubmitRecord(formData: PaymentDetail) {
 
-    if (formData.pmId == 0) {
-      this.insertRecord(formData);
+    if (formData.pmId > 0 || formData.pmId) {
+      this.updateRecord(formData);
+     
     }
     else {
-      this.updateRecord(formData);
+      this.insertRecord(formData);
     }
 
   }

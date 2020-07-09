@@ -17,7 +17,7 @@ import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { CounterComponent } from './counter/counter.component';
+import { CounterModule } from './counter/counter.module';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentDetailComponent } from './payment/payment-detail/payment-detail.component';
@@ -30,8 +30,7 @@ import { MyLoaderComponent } from './share/components/my-loader/my-loader.compon
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,    
-    CounterComponent,
+    NavMenuComponent,       
     FetchDataComponent,
     PaymentComponent,
     PaymentDetailComponent,
@@ -45,7 +44,8 @@ import { MyLoaderComponent } from './share/components/my-loader/my-loader.compon
     FormsModule,
     AppRoutingModule,
     AlertModule,
-    HomeModule
+    HomeModule,
+    CounterModule
   ],
   providers: [PaymentDetailService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]

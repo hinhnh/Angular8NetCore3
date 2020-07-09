@@ -5,16 +5,13 @@ import { HomeComponent } from './home.component';
 import { SubHomeComponent } from './sub-home/sub-home.component';
 
 @NgModule({
-  imports: [
-    routing,
-    CommonModule
-  ],
   declarations: [
     HomeComponent,
     SubHomeComponent
   ],
+  imports: [
+   routing,
+   CommonModule] ,
   providers: []
 })
-
-export class HomeModule {
-}
+export class HomeModule {}
