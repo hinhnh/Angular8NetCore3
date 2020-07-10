@@ -22,7 +22,8 @@ const routes: Routes = [
     loadChildren: () => import('./counter/counter.module').then(m => m.CounterModule)
   },
   { path: 'fetch-data', component: FetchDataComponent },
-  { path: 'payment', component: PaymentComponent }
+  { path: 'payment', component: PaymentComponent },
+  { path: '**', redirectTo: 'miscellaneous/error404' }
 
 ];
 
