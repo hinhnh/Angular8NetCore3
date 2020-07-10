@@ -17,7 +17,7 @@ import { HomeModule } from './home/home.module';
 import { AppComponent } from './app.component';
 
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { CounterModule } from './counter/counter.module';
+//import { CounterModule } from './counter/counter.module';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PaymentComponent } from './payment/payment.component';
 import { PaymentDetailComponent } from './payment/payment-detail/payment-detail.component';
@@ -44,8 +44,8 @@ import { MyLoaderComponent } from './share/components/my-loader/my-loader.compon
     FormsModule,
     AppRoutingModule,
     AlertModule,
-    HomeModule,
-    CounterModule
+    HomeModule
+    //CounterModule
   ],
   providers: [PaymentDetailService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]

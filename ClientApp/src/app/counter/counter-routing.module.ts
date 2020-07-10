@@ -14,7 +14,17 @@ const routes: Routes = [
   {
     path: 'sub-counter',
     component: SubCounterComponent
+  },
+
+  {
+    path: 'sub2-counter',
+    loadChildren: () => import('./sub2-counter/sub2.module').then(m => m.Sub2CounterModule) 
+  },
+  {
+    path: 'sub2-counter/:id',
+    loadChildren: () => import('./sub2-counter/sub2.module').then(m => m.Sub2CounterModule)
   }
+
 ];
 
 @NgModule({
