@@ -69,3 +69,27 @@ Install package:
 step1: enable-migration
 step2 scripts create or update data base with migration:  add-migration CreateSchoolDB
 step3 run  command: update-database –verbose
+ ==================================================================================================
+ 
+  Install Ng Bootstrap
+  Step1: npm install --save @ng-bootstrap/ng-bootstrap
+  Step2: Import Module
+   import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+  
+import { AppComponent } from './app.component';
+  
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+   
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule, 
+    NgbModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

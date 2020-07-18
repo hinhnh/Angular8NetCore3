@@ -11,7 +11,7 @@ import { PaymentDetailService } from './payment/payment-detail.service';
 import { LoaderInterceptor } from './share/interceptors/loader-interceptor.service';
 import { AlertModule } from './share/components/alert';
 import { HomeModule } from './home/home.module';
-
+//import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { AppComponent } from './app.component';
@@ -43,9 +43,9 @@ import { MyLoaderComponent } from './share/components/my-loader/my-loader.compon
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    AlertModule,
+    AlertModule,   
     HomeModule
-    //CounterModule
+    
   ],
   providers: [PaymentDetailService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent]
