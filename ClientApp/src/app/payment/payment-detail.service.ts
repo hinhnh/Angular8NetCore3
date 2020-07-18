@@ -1,19 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { PaymentDetail } from '../models/payment-detail.model';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PaymentDetailService {
 
-  public shareData: PaymentDetail;
+  public shareData: PaymentDetail;  
+  private sharedItem = new BehaviorSubject<PaymentDetail>(new PaymentDetail());
   readonly rootURL = 'http://localhost:53899/api';
   list: PaymentDetail[];
-
   constructor(private http: HttpClient) {
+  }
 
+  sendSharedItem(paymentDetail: PaymentDetail) {
+    this.sharedItem.next(paymentDetail);  
+  }
+
+  getSharedItem(): Observable<any> {
+    return this.sharedItem.asObservable();   
   }
 
   getPaymentDetails(): Observable<PaymentDetail[]> {

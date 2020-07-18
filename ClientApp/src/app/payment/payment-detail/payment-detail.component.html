@@ -1,12 +1,9 @@
 
   <div class="contianer">
     <h3>Register/Edit Payment1</h3>
-    <span *ngIf="data!=null">
-      {{data.cardOwnerName}}
-    </span>
     <!--<span *ngIf="data!=null">
       {{data.cardOwnerName}}
-    </span>-->
+    </span>-->  
 
     <form #form="ngForm" (ngSubmit)="onSubmit()" autocomplete="off" ngNativeValidate>
       <input type="hidden" name="pmId" #pmId="ngModel" [(ngModel)]="formData.pmId">
