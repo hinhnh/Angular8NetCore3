@@ -19,14 +19,7 @@ constructor(private service: PaymentDetailService) {
 
 }
 
-  ngOnInit() {
-    this.getItem();
-  }
-
-  getItem() {
-    this.service.getSharedItem().subscribe(item =>
-      (this.formData = item)
-    );
+  ngOnInit() {   
   }
 
   get data(): PaymentDetail {
@@ -37,7 +30,16 @@ constructor(private service: PaymentDetailService) {
   resetForm(form?: NgForm) {
     if (form != null) form.form.reset();
     this.formData = new PaymentDetail();
-    this.service.shareData = new PaymentDetail();        
+    this.service.shareData = new PaymentDetail();
+
+    //this.formData = {
+    //  pmId: 0,
+    //  cardOwnerName: '',
+    //  cardNumber: '',
+    //  expirationDate: '',
+    //  cvv: ''
+    //}
+    
   }  
 
   onSubmit(form: NgForm) {

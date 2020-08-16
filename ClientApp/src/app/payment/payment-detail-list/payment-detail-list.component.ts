@@ -19,8 +19,7 @@ export class PaymentDetailListComponent implements OnInit {
   }
 
   editRecord(item: PaymentDetail) {
-   const cloneItem = JSON.parse(JSON.stringify(item))
-   this.service.sendSharedItem(cloneItem);
+    this.service.shareData = item;
   }
 
   deleteRecord(item: PaymentDetail) {
